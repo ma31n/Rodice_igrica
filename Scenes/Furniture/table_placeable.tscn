@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6pnndsp7ih70"]
+
+[ext_resource type="Texture2D" uid="uid://nv0rln714a8y" path="res://Sprites/Furniture/table.png" id="1_1i0gp"]
+[ext_resource type="Script" path="res://Scripts/table_placeable.gd" id="1_j46xw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63na8"]
+size = Vector2(1188.33, 495)
+
+[node name="TablePlaceable" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_j46xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.833333, 0.833336)
+shape = SubResource("RectangleShape2D_63na8")
+
+[node name="Table" type="Sprite2D" parent="."]
+texture = ExtResource("1_1i0gp")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

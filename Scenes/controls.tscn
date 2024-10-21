@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://6vj3qawy1d6y"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 2
+offset_right = 121.0
+offset_bottom = 648.0
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 2
+offset_left = 1031.0
+offset_right = 1152.0
+offset_bottom = 648.0

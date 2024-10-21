@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wgo1iytelr1j"]
+
+[ext_resource type="Script" path="res://Scripts/table_placeable.gd" id="1_ftwgu"]
+[ext_resource type="Texture2D" uid="uid://cfpkr4s54qrqk" path="res://Sprites/Furniture/fridge.png" id="2_66oxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63na8"]
+size = Vector2(566.667, 800)
+
+[node name="FridgePlaceable" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_ftwgu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5631e-06, -6.35783e-06)
+shape = SubResource("RectangleShape2D_63na8")
+
+[node name="Fridge" type="Sprite2D" parent="."]
+texture = ExtResource("2_66oxm")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

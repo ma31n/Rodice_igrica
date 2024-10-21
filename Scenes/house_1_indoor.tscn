@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3xyehwu8c32w"]
+
+[ext_resource type="Texture2D" uid="uid://18en14qjslso" path="res://Sprites/Environment/house_bg.jpg" id="1_ea0nr"]
+[ext_resource type="Script" path="res://Scripts/house_1_indoor.gd" id="1_ikmlt"]
+[ext_resource type="Script" path="res://Scripts/PlacementButtons.gd" id="3_6swfk"]
+[ext_resource type="Script" path="res://Scripts/EditButton.gd" id="4_famt1"]
+[ext_resource type="Script" path="res://Scripts/Back.gd" id="5_81iyo"]
+[ext_resource type="Texture2D" uid="uid://b7lv71dvf1lm5" path="res://Sprites/UI/edit_button.png" id="5_nduvi"]
+[ext_resource type="Texture2D" uid="uid://cailg7pyhwnyd" path="res://Sprites/UI/delete.png" id="6_hekyw"]
+[ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="7_i4a4t"]
+[ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="8_yedgy"]
+[ext_resource type="Script" path="res://Scripts/Controls.gd" id="9_snsqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxnbt"]
+size = Vector2(62, 96)
+
+[node name="House1_indoor" type="Node2D"]
+script = ExtResource("1_ikmlt")
+
+[node name="PlacedFurniture" type="Node" parent="."]
+
+[node name="Bathroom" type="Sprite2D" parent="."]
+modulate = Color(0.796612, 0.548182, 0.401552, 1)
+position = Vector2(337, 490)
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_ea0nr")
+
+[node name="Kitchen" type="Sprite2D" parent="."]
+modulate = Color(0.668093, 0.626053, 0.212624, 1)
+position = Vector2(1146, 490)
+scale = Vector2(0.7, 1)
+texture = ExtResource("1_ea0nr")
+
+[node name="LivingRoom" type="Sprite2D" parent="."]
+modulate = Color(0.631158, 0, 0.0482962, 1)
+position = Vector2(2291, 490)
+texture = ExtResource("1_ea0nr")
+
+[node name="Bedroom" type="Sprite2D" parent="."]
+modulate = Color(0, 0.439112, 0.406135, 1)
+position = Vector2(3403, 490)
+scale = Vector2(0.65, 1)
+texture = ExtResource("1_ea0nr")
+
+[node name="Bedroom2" type="Sprite2D" parent="."]
+modulate = Color(0.875769, 0.450051, 0.65576, 1)
+position = Vector2(4279, 490)
+scale = Vector2(0.65, 1)
+texture = ExtResource("1_ea0nr")
+
+[node name="PlacementButtons" type="Node2D" parent="."]
+script = ExtResource("3_6swfk")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlacementButtons"]
+offset_top = 494.0
+offset_right = 2304.0
+offset_bottom = 802.0
+scale = Vector2(0.5, 0.5)
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlacementButtons/ScrollContainer"]
+layout_mode = 2
+
+[node name="DeleteFurniture" type="Area2D" parent="."]
+position = Vector2(1026, -511)
+
+[node name="Sprite2D" type="Sprite2D" parent="DeleteFurniture"]
+position = Vector2(82, 572)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("6_hekyw")
+
+[node name="DeleteFurniture" type="CollisionShape2D" parent="DeleteFurniture"]
+position = Vector2(82, 569)
+shape = SubResource("RectangleShape2D_vxnbt")
+
+[node name="Floor" parent="." instance=ExtResource("7_i4a4t")]
+position = Vector2(-10, 696)
+rotation = 1.5708
+
+[node name="Floor2" parent="." instance=ExtResource("7_i4a4t")]
+position = Vector2(4727, 655)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("8_yedgy")]
+position = Vector2(497, 570)
+scale = Vector2(1.2, 1.2)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
+limit_left = -20
+limit_right = 4737
+limit_bottom = 648
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+script = ExtResource("9_snsqe")
+
+[node name="Control" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+mouse_filter = 1
+
+[node name="Customization" type="Button" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 537.0
+offset_top = -68.0
+offset_right = 630.0
+offset_bottom = -37.0
+text = "Uređivanje"
+script = ExtResource("5_81iyo")
+
+[node name="Button" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 648.0
+mouse_force_pass_scroll_events = false
+
+[node name="Button2" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_left = 1031.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_force_pass_scroll_events = false
+
+[node name="Back" type="Button" parent="Player/CanvasLayer/Control"]
+offset_left = 598.0
+offset_top = 7.0
+offset_right = 706.0
+offset_bottom = 61.0
+text = "POVRATAK U
+GRAD"
+script = ExtResource("5_81iyo")
+
+[node name="EditButton" type="TextureButton" parent="Player/CanvasLayer"]
+offset_left = 472.0
+offset_top = 4.0
+offset_right = 544.0
+offset_bottom = 76.0
+texture_normal = ExtResource("5_nduvi")
+script = ExtResource("4_famt1")
+
+[connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_up"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_up"]
+[connection signal="pressed" from="Player/CanvasLayer/Control/Back" to="Player/CanvasLayer/Control/Back" method="_on_pressed"]
+[connection signal="pressed" from="Player/CanvasLayer/EditButton" to="Player/CanvasLayer/EditButton" method="_on_pressed"]

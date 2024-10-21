@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwjrqd57d5323"]
+
+[ext_resource type="Texture2D" uid="uid://rh5q5gnbsvf5" path="res://Sprites/Environment/home1.png" id="1_1c3ox"]
+[ext_resource type="Script" path="res://Scripts/house_1.gd" id="1_j1eeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewxam"]
+size = Vector2(232, 390)
+
+[node name="House1" type="Area2D"]
+script = ExtResource("1_j1eeb")
+
+[node name="Home1" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -9.53674e-07)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_1c3ox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.98023e-08, 1)
+shape = SubResource("RectangleShape2D_ewxam")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

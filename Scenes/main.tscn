@@ -1,0 +1,159 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7e4gdscliajk"]
+
+[ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="1_qkuoe"]
+[ext_resource type="PackedScene" uid="uid://bwjrqd57d5323" path="res://Scenes/house_1.tscn" id="1_vhyh5"]
+[ext_resource type="Texture2D" uid="uid://bqpc2pys8a10k" path="res://Sprites/Environment/tree2.png" id="2_py4r7"]
+[ext_resource type="Texture2D" uid="uid://djb0xrroie2rj" path="res://Sprites/Environment/home2.png" id="2_qbt0o"]
+[ext_resource type="Texture2D" uid="uid://cu8rhaoguqyu5" path="res://Sprites/Environment/tree1.png" id="3_blk5t"]
+[ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="3_h3lvc"]
+[ext_resource type="Texture2D" uid="uid://beudykt3yfb5f" path="res://Sprites/Environment/home3.png" id="5_8nlr1"]
+[ext_resource type="Texture2D" uid="uid://c2bwjwi6k7i7t" path="res://Sprites/Environment/home4.png" id="6_1ow3t"]
+[ext_resource type="Texture2D" uid="uid://c71f3tysifdjk" path="res://Sprites/Environment/home5.png" id="7_p0gka"]
+[ext_resource type="Script" path="res://Scripts/Back.gd" id="8_cd3lo"]
+[ext_resource type="Script" path="res://Scripts/Controls.gd" id="11_gw3cb"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Tree10" type="Sprite2D" parent="."]
+position = Vector2(2355, 375)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_py4r7")
+
+[node name="Tree1" type="Sprite2D" parent="."]
+position = Vector2(49, 367)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(568, 367)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(885, 365)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree4" type="Sprite2D" parent="."]
+position = Vector2(1555, 367)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree5" type="Sprite2D" parent="."]
+position = Vector2(2078, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree6" type="Sprite2D" parent="."]
+position = Vector2(2566, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_blk5t")
+
+[node name="Tree7" type="Sprite2D" parent="."]
+position = Vector2(349, 375)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_py4r7")
+
+[node name="Tree8" type="Sprite2D" parent="."]
+position = Vector2(1163, 373)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_py4r7")
+
+[node name="Tree9" type="Sprite2D" parent="."]
+position = Vector2(1864, 377)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_py4r7")
+
+[node name="House1" parent="." instance=ExtResource("1_vhyh5")]
+position = Vector2(202, 433)
+
+[node name="Home2" type="Sprite2D" parent="."]
+position = Vector2(708, 433)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_qbt0o")
+
+[node name="Home3" type="Sprite2D" parent="."]
+position = Vector2(1313, 433)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_8nlr1")
+
+[node name="Home4" type="Sprite2D" parent="."]
+position = Vector2(1761, 435)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_1ow3t")
+
+[node name="Home5" type="Sprite2D" parent="."]
+position = Vector2(2271, 433)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_p0gka")
+
+[node name="Floor" parent="." instance=ExtResource("1_qkuoe")]
+position = Vector2(456.6, 638)
+scale = Vector2(3, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_h3lvc")]
+position = Vector2(452, 580)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+process_callback = 0
+limit_left = 0
+limit_right = 2655
+limit_bottom = 648
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+script = ExtResource("11_gw3cb")
+
+[node name="Control" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 628.0
+mouse_filter = 1
+
+[node name="Customization" type="Button" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 23.0
+offset_right = 605.0
+offset_bottom = 54.0
+text = "Uređivanje"
+script = ExtResource("8_cd3lo")
+
+[node name="Button" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 648.0
+mouse_force_pass_scroll_events = false
+
+[node name="Button2" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_left = 1031.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_force_pass_scroll_events = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 152.0
+offset_right = 689.0
+offset_bottom = 192.0
+
+[node name="Floor2" parent="." instance=ExtResource("1_qkuoe")]
+position = Vector2(-16, 509)
+rotation = 1.5708
+
+[node name="Floor3" parent="." instance=ExtResource("1_qkuoe")]
+position = Vector2(2668, 450)
+rotation = 1.5708
+
+[connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_up"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_up"]

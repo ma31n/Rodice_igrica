@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt3vnr5dsvley"]
+
+[ext_resource type="Script" path="res://Scripts/customization_scene.gd" id="1_8im1v"]
+[ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="2_1hx3k"]
+[ext_resource type="Script" path="res://Scripts/Back.gd" id="3_8jg4l"]
+[ext_resource type="Texture2D" uid="uid://y3xiwvdi78up" path="res://Sprites/UI/left_button.png" id="3_cqgkv"]
+[ext_resource type="Texture2D" uid="uid://cq286rgk4vdqo" path="res://Sprites/UI/right_button.png" id="4_a1bmk"]
+
+[node name="CustomizationScene" type="Node2D"]
+script = ExtResource("1_8im1v")
+
+[node name="Player" parent="." instance=ExtResource("2_1hx3k")]
+position = Vector2(554, 356)
+scale = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Previous" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 308.0
+offset_right = 485.0
+offset_bottom = 436.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_cqgkv")
+
+[node name="Next" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 306.0
+offset_right = 826.0
+offset_bottom = 434.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_a1bmk")
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 148.0
+offset_bottom = 87.0
+text = "POVRATAK U
+GRAD"
+script = ExtResource("3_8jg4l")
+
+[node name="Category" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 109.0
+offset_right = 600.0
+offset_bottom = 149.0
+text = "
+"
+
+[node name="Category_Previous" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 114.0
+offset_right = 498.0
+offset_bottom = 145.0
+text = "<
+"
+
+[node name="Category_Next" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 113.0
+offset_right = 675.0
+offset_bottom = 144.0
+text = ">
+"
+
+[connection signal="pressed" from="Control/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/Back" to="Control/Back" method="_on_pressed"]
+[connection signal="pressed" from="Control/Category_Previous" to="." method="_on_category_previous_pressed"]
+[connection signal="pressed" from="Control/Category_Next" to="." method="_on_category_next_pressed"]
