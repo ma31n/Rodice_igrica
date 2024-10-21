@@ -33,4 +33,4 @@ func on_button_pressed(name):
 		var loadname = name+"_placeable.tscn";
 		var newFurniture = load("res://Scenes/Furniture/"+loadname).instantiate();
 		newFurniture.position=Vector2(Global.viewport.x/2,Global.viewport.y/2);
-		$"../../PlacedFurniture".add_child(newFurniture);
+		$"../PlacedFurniture".add_child(newFurniture);
