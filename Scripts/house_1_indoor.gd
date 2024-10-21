@@ -10,7 +10,4 @@ func _ready():
 			$PlacedFurniture.add_child(child);
 
 func _process(delta):
-	if(Global.furniture_edit==1):
-		$DeleteFurniture.visible=true;
-	else:
-		$DeleteFurniture.visible=false;
+	pass

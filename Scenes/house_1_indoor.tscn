@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3xyehwu8c32w"]
+[gd_scene load_steps=14 format=3 uid="uid://b3xyehwu8c32w"]
 
 [ext_resource type="Texture2D" uid="uid://18en14qjslso" path="res://Sprites/Environment/house_bg.jpg" id="1_ea0nr"]
 [ext_resource type="Script" path="res://Scripts/house_1_indoor.gd" id="1_ikmlt"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="7_i4a4t"]
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="8_yedgy"]
 [ext_resource type="Script" path="res://Scripts/Controls.gd" id="9_snsqe"]
+[ext_resource type="Script" path="res://Scripts/delete_furniture.gd" id="10_2g8q4"]
+[ext_resource type="Texture2D" uid="uid://b78ifwo0ak1p0" path="res://Sprites/Environment/floor.png" id="12_qp4nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxnbt"]
 size = Vector2(62, 96)
@@ -19,11 +21,17 @@ script = ExtResource("1_ikmlt")
 
 [node name="PlacedFurniture" type="Node" parent="."]
 
-[node name="Bathroom" type="Sprite2D" parent="."]
+[node name="Bathroom" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="Bathroom"]
 modulate = Color(0.796612, 0.548182, 0.401552, 1)
 position = Vector2(337, 490)
 scale = Vector2(0.5, 1)
 texture = ExtResource("1_ea0nr")
+
+[node name="Floor" type="Sprite2D" parent="Bathroom"]
+position = Vector2(700, 477.5)
+texture = ExtResource("12_qp4nt")
 
 [node name="Kitchen" type="Sprite2D" parent="."]
 modulate = Color(0.668093, 0.626053, 0.212624, 1)
@@ -60,18 +68,6 @@ vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlacementButtons/ScrollContainer"]
 layout_mode = 2
-
-[node name="DeleteFurniture" type="Area2D" parent="."]
-position = Vector2(1026, -511)
-
-[node name="Sprite2D" type="Sprite2D" parent="DeleteFurniture"]
-position = Vector2(82, 572)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("6_hekyw")
-
-[node name="DeleteFurniture" type="CollisionShape2D" parent="DeleteFurniture"]
-position = Vector2(82, 569)
-shape = SubResource("RectangleShape2D_vxnbt")
 
 [node name="Floor" parent="." instance=ExtResource("7_i4a4t")]
 position = Vector2(-10, 696)
@@ -144,6 +140,19 @@ offset_right = 544.0
 offset_bottom = 76.0
 texture_normal = ExtResource("5_nduvi")
 script = ExtResource("4_famt1")
+
+[node name="DeleteFurniture" type="Area2D" parent="Player/CanvasLayer"]
+position = Vector2(1026, -511)
+script = ExtResource("10_2g8q4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CanvasLayer/DeleteFurniture"]
+position = Vector2(82, 572)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("6_hekyw")
+
+[node name="DeleteFurniture" type="CollisionShape2D" parent="Player/CanvasLayer/DeleteFurniture"]
+position = Vector2(82, 569)
+shape = SubResource("RectangleShape2D_vxnbt")
 
 [connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
 [connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]
