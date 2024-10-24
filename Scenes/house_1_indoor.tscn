@@ -1,7 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://b3xyehwu8c32w"]
 
-[ext_resource type="Texture2D" uid="uid://18en14qjslso" path="res://Sprites/Environment/house_bg.jpg" id="1_ea0nr"]
 [ext_resource type="Script" path="res://Scripts/house_1_indoor.gd" id="1_ikmlt"]
+[ext_resource type="Texture2D" uid="uid://6j2t8c0ytm8b" path="res://Sprites/Environment/Hall/hall_bg.png" id="2_lgjx5"]
+[ext_resource type="Texture2D" uid="uid://dfbbjfcyw7up" path="res://Sprites/Environment/Hall/hall_walls.png" id="3_4mnc8"]
 [ext_resource type="Script" path="res://Scripts/PlacementButtons.gd" id="3_6swfk"]
 [ext_resource type="Script" path="res://Scripts/EditButton.gd" id="4_famt1"]
 [ext_resource type="Script" path="res://Scripts/Back.gd" id="5_81iyo"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="8_yedgy"]
 [ext_resource type="Script" path="res://Scripts/Controls.gd" id="9_snsqe"]
 [ext_resource type="Script" path="res://Scripts/delete_furniture.gd" id="10_2g8q4"]
-[ext_resource type="Texture2D" uid="uid://b78ifwo0ak1p0" path="res://Sprites/Environment/floor.png" id="12_qp4nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxnbt"]
 size = Vector2(62, 96)
@@ -21,40 +21,23 @@ script = ExtResource("1_ikmlt")
 
 [node name="PlacedFurniture" type="Node" parent="."]
 
-[node name="Bathroom" type="Node2D" parent="."]
+[node name="Floor" parent="." instance=ExtResource("7_i4a4t")]
+position = Vector2(20, 693)
+rotation = 1.5708
 
-[node name="Wall" type="Sprite2D" parent="Bathroom"]
-modulate = Color(0.796612, 0.548182, 0.401552, 1)
-position = Vector2(337, 490)
-scale = Vector2(0.5, 1)
-texture = ExtResource("1_ea0nr")
+[node name="Floor2" parent="." instance=ExtResource("7_i4a4t")]
+position = Vector2(1613, 391)
+rotation = 1.5708
 
-[node name="Floor" type="Sprite2D" parent="Bathroom"]
-position = Vector2(700, 477.5)
-texture = ExtResource("12_qp4nt")
+[node name="Hall" type="Node2D" parent="."]
+position = Vector2(817, 324)
 
-[node name="Kitchen" type="Sprite2D" parent="."]
-modulate = Color(0.668093, 0.626053, 0.212624, 1)
-position = Vector2(1146, 490)
-scale = Vector2(0.7, 1)
-texture = ExtResource("1_ea0nr")
+[node name="Background" type="Sprite2D" parent="Hall"]
+self_modulate = Color(0.90573, 0.261736, 0.290112, 1)
+texture = ExtResource("2_lgjx5")
 
-[node name="LivingRoom" type="Sprite2D" parent="."]
-modulate = Color(0.631158, 0, 0.0482962, 1)
-position = Vector2(2291, 490)
-texture = ExtResource("1_ea0nr")
-
-[node name="Bedroom" type="Sprite2D" parent="."]
-modulate = Color(0, 0.439112, 0.406135, 1)
-position = Vector2(3403, 490)
-scale = Vector2(0.65, 1)
-texture = ExtResource("1_ea0nr")
-
-[node name="Bedroom2" type="Sprite2D" parent="."]
-modulate = Color(0.875769, 0.450051, 0.65576, 1)
-position = Vector2(4279, 490)
-scale = Vector2(0.65, 1)
-texture = ExtResource("1_ea0nr")
+[node name="Walls" type="Sprite2D" parent="Hall"]
+texture = ExtResource("3_4mnc8")
 
 [node name="PlacementButtons" type="Node2D" parent="."]
 script = ExtResource("3_6swfk")
@@ -69,22 +52,14 @@ vertical_scroll_mode = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="PlacementButtons/ScrollContainer"]
 layout_mode = 2
 
-[node name="Floor" parent="." instance=ExtResource("7_i4a4t")]
-position = Vector2(-10, 696)
-rotation = 1.5708
-
-[node name="Floor2" parent="." instance=ExtResource("7_i4a4t")]
-position = Vector2(4727, 655)
-rotation = 1.5708
-
 [node name="Player" parent="." instance=ExtResource("8_yedgy")]
-position = Vector2(497, 570)
-scale = Vector2(1.2, 1.2)
+position = Vector2(549, 512)
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 process_callback = 0
-limit_left = -20
-limit_right = 4737
+limit_left = 0
+limit_right = 1635
 limit_bottom = 648
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
