@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3xyehwu8c32w"]
+[gd_scene load_steps=17 format=3 uid="uid://b3xyehwu8c32w"]
 
 [ext_resource type="Script" path="res://Scripts/house_1_indoor.gd" id="1_ikmlt"]
 [ext_resource type="Texture2D" uid="uid://6j2t8c0ytm8b" path="res://Sprites/Environment/Hall/hall_bg.png" id="2_lgjx5"]
@@ -6,9 +6,12 @@
 [ext_resource type="Script" path="res://Scripts/PlacementButtons.gd" id="3_6swfk"]
 [ext_resource type="Script" path="res://Scripts/EditButton.gd" id="4_famt1"]
 [ext_resource type="Script" path="res://Scripts/Back.gd" id="5_81iyo"]
+[ext_resource type="Texture2D" uid="uid://evf3s5dgg5n8" path="res://Sprites/Environment/Hall/hall_floor.png" id="5_fkl2t"]
 [ext_resource type="Texture2D" uid="uid://b7lv71dvf1lm5" path="res://Sprites/UI/edit_button.png" id="5_nduvi"]
+[ext_resource type="Texture2D" uid="uid://utjrgn8pq33m" path="res://Sprites/Environment/Hall/door.png" id="6_52hml"]
 [ext_resource type="Texture2D" uid="uid://cailg7pyhwnyd" path="res://Sprites/UI/delete.png" id="6_hekyw"]
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="7_i4a4t"]
+[ext_resource type="Texture2D" uid="uid://bg5d7sila33dp" path="res://Sprites/Environment/Hall/exitdoor.png" id="7_qrrpu"]
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="8_yedgy"]
 [ext_resource type="Script" path="res://Scripts/Controls.gd" id="9_snsqe"]
 [ext_resource type="Script" path="res://Scripts/delete_furniture.gd" id="10_2g8q4"]
@@ -32,12 +35,50 @@ rotation = 1.5708
 [node name="Hall" type="Node2D" parent="."]
 position = Vector2(817, 324)
 
-[node name="Background" type="Sprite2D" parent="Hall"]
+[node name="WallColor" type="Sprite2D" parent="Hall"]
 self_modulate = Color(0.90573, 0.261736, 0.290112, 1)
 texture = ExtResource("2_lgjx5")
 
 [node name="Walls" type="Sprite2D" parent="Hall"]
 texture = ExtResource("3_4mnc8")
+
+[node name="FloorColor" type="Sprite2D" parent="Hall"]
+self_modulate = Color(1, 0.597694, 0.411737, 1)
+texture = ExtResource("5_fkl2t")
+
+[node name="Door" type="Sprite2D" parent="Hall"]
+position = Vector2(-516, 13)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_52hml")
+
+[node name="Door2" type="Sprite2D" parent="Hall"]
+position = Vector2(-221, 13)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_52hml")
+
+[node name="Door3" type="Sprite2D" parent="Hall"]
+position = Vector2(46, 13)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_52hml")
+
+[node name="Door4" type="Sprite2D" parent="Hall"]
+position = Vector2(318, 13)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_52hml")
+
+[node name="Door5" type="Sprite2D" parent="Hall"]
+position = Vector2(536, 13)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_52hml")
+
+[node name="ExitDoor" type="Sprite2D" parent="Hall"]
+position = Vector2(752, 110)
+texture = ExtResource("7_qrrpu")
+
+[node name="ExitDoor2" type="Sprite2D" parent="Hall"]
+position = Vector2(-750, 115)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_qrrpu")
 
 [node name="PlacementButtons" type="Node2D" parent="."]
 script = ExtResource("3_6swfk")
