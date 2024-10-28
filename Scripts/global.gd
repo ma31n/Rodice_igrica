@@ -13,16 +13,15 @@ var camera = 0;
 
 var furniture_edit = 2;
 
-var houseSave = HouseSave.new()
-
+var playerSave = PlayerSave.new()
 var currentScene;
 
-func saveHouseState(scene):
-	houseSave.furniture = scene;
-	ResourceSaver.save(houseSave, "user://saveslot.tres");
+func savePLayerState(scene):
+	playerSave.furniture = scene;
+	ResourceSaver.save(playerSave, "user://saveslot.tres");
 
-func loadHouseState():
+func loadPlayerState():
 	if(is_instance_valid(ResourceLoader.load("user://saveslot.tres"))):
-		houseSave = ResourceLoader.load("user://saveslot.tres");
+		playerSave = ResourceLoader.load("user://saveslot.tres");
 	else:
-		ResourceSaver.save(houseSave, "user://saveslot.tres");
+		ResourceSaver.save(playerSave, "user://saveslot.tres");

@@ -20,4 +20,4 @@ func saveHouse():
 	for child in parent.get_children():
 		child.set_owner(parent);
 	save.pack(parent)
-	Global.saveHouseState(save);
+	Global.currentScene.saveHouseState(save);
