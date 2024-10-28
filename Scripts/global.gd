@@ -9,6 +9,8 @@ var currentapparel = {
 
 var viewport = 0;
 
+var camera = 0;
+
 var furniture_edit = 2;
 
 var houseSave = HouseSave.new()

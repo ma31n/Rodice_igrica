@@ -32,5 +32,5 @@ func on_button_pressed(name):
 	if(Global.furniture_edit!=2):
 		var loadname = name+"_placeable.tscn";
 		var newFurniture = load("res://Scenes/Furniture/"+loadname).instantiate();
-		newFurniture.position=Vector2(Global.viewport.x/2,Global.viewport.y/2);
+		newFurniture.position=Vector2(Global.camera);
 		Global.currentScene.find_child("PlacedFurniture").add_child(newFurniture);
