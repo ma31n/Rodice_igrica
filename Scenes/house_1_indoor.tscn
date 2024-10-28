@@ -80,19 +80,6 @@ position = Vector2(-750, 115)
 scale = Vector2(-1, 1)
 texture = ExtResource("7_qrrpu")
 
-[node name="PlacementButtons" type="Node2D" parent="."]
-script = ExtResource("3_6swfk")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PlacementButtons"]
-offset_top = 494.0
-offset_right = 2304.0
-offset_bottom = 802.0
-scale = Vector2(0.5, 0.5)
-vertical_scroll_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PlacementButtons/ScrollContainer"]
-layout_mode = 2
-
 [node name="Player" parent="." instance=ExtResource("8_yedgy")]
 position = Vector2(549, 512)
 scale = Vector2(1.5, 1.5)
@@ -169,6 +156,19 @@ texture = ExtResource("6_hekyw")
 [node name="DeleteFurniture" type="CollisionShape2D" parent="Player/CanvasLayer/DeleteFurniture"]
 position = Vector2(82, 569)
 shape = SubResource("RectangleShape2D_vxnbt")
+
+[node name="PlacementButtons" type="Node2D" parent="Player/CanvasLayer"]
+script = ExtResource("3_6swfk")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Player/CanvasLayer/PlacementButtons"]
+offset_top = 494.0
+offset_right = 2304.0
+offset_bottom = 802.0
+scale = Vector2(0.5, 0.5)
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/PlacementButtons/ScrollContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
 [connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7e4gdscliajk"]
+[gd_scene load_steps=13 format=3 uid="uid://b7e4gdscliajk"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_jtr0f"]
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="1_qkuoe"]
 [ext_resource type="PackedScene" uid="uid://bwjrqd57d5323" path="res://Scenes/house_1.tscn" id="1_vhyh5"]
 [ext_resource type="Texture2D" uid="uid://bqpc2pys8a10k" path="res://Sprites/Environment/tree2.png" id="2_py4r7"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Controls.gd" id="11_gw3cb"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_jtr0f")
 
 [node name="Tree10" type="Sprite2D" parent="."]
 position = Vector2(2355, 375)

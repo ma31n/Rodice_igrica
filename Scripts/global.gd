@@ -13,6 +13,8 @@ var furniture_edit = 2;
 
 var houseSave = HouseSave.new()
 
+var currentScene;
+
 func saveHouseState(scene):
 	houseSave.furniture = scene;
 	ResourceSaver.save(houseSave, "user://saveslot.tres");
