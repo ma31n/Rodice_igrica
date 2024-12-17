@@ -8,3 +8,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _notification(what: int) -> void:
+	pass
+	#if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		#Global.savePlayerState();

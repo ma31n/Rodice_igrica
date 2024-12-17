@@ -16,8 +16,8 @@ var furniture_edit = 2;
 var playerSave = PlayerSave.new()
 var currentScene;
 
-func savePLayerState(scene):
-	playerSave.furniture = scene;
+func savePlayerState(house):
+	playerSave.houses.append(house);
 	ResourceSaver.save(playerSave, "user://saveslot.tres");
 
 func loadPlayerState():
@@ -25,3 +25,6 @@ func loadPlayerState():
 		playerSave = ResourceLoader.load("user://saveslot.tres");
 	else:
 		ResourceSaver.save(playerSave, "user://saveslot.tres");
+
+func test():
+	print(playerSave.houses)

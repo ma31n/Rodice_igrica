@@ -20,4 +20,14 @@ func saveHouse():
 	for child in parent.get_children():
 		child.set_owner(parent);
 	save.pack(parent)
-	Global.currentScene.saveHouseState(save);
+	
+	var houseSave = HouseSave.new();
+	houseSave.hallFurniture=save;
+	print(Global.playerSave.houses)
+	if(Global.playerSave.houses.size()<1): 
+		Global.playerSave.houses.append(houseSave);
+	else:
+		Global.playerSave.houses[0]=houseSave;
+		
+	print(Global.playerSave.houses);
+	
