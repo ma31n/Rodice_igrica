@@ -30,6 +30,7 @@ func saveHouse():
 	var parent = currentScene.find_child("PlacedFurniture");
 	for child in parent.get_children():
 		child.set_owner(parent);
+		child.disconnect("input_event", Callable(child, "_on_input_event"))
 	save.pack(parent)
 	
 	var houseSave = HouseSave.new();

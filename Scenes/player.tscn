@@ -251,7 +251,7 @@ shape = SubResource("RectangleShape2D_q3rc8")
 [node name="Parts" type="Node2D" parent="SkeletonContainer"]
 
 [node name="Arm" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(19.6653, -1.23926)
+position = Vector2(19.6653, -1.23927)
 rotation = -0.0447202
 scale = Vector2(0.99995, 0.99995)
 texture = ExtResource("3_achy3")
@@ -283,6 +283,7 @@ texture = ExtResource("3_achy3")
 
 [node name="Head" type="Sprite2D" parent="SkeletonContainer/Parts"]
 position = Vector2(0, -47.5)
+scale = Vector2(1, 1)
 texture = ExtResource("6_1phlc")
 
 [node name="Mouth" type="Sprite2D" parent="SkeletonContainer/Parts"]
