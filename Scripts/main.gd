@@ -5,7 +5,6 @@ extends Node2D
 func _ready() -> void:
 	Global.currentScene=get_tree().current_scene;
 	Global.loadPlayerState()
-	print("in")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
