@@ -20,6 +20,7 @@ var loaded_names = []
 
 
 func _ready():
+	Global.currentScene=get_tree().current_scene
 	load_category();
 	
 

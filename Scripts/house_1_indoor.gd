@@ -5,14 +5,12 @@ var houseSave = HouseSave.new()
 func _ready():
 	Global.currentScene=get_tree().current_scene;
 	houseSave.name = self.name;
-#RADI PROBLEM KAD TRIBA UCITAT PLAYERSTATE IZ NEKE DRUGE SKRIPTE POZIVAJUCI GLOBAL.LOADPLAYERSTATE()
-	print(Global.playerSave.houses)
-	loadHouseState()
+	loadHouse()
 
 func _process(delta):
 	pass
 	
-func loadHouseState():
+func loadHouse():
 	if(Global.playerSave.houses.size()>0):
 		houseSave = Global.playerSave.houses[0];
 		

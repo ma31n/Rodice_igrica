@@ -16,15 +16,35 @@ var furniture_edit = 2;
 var playerSave = PlayerSave.new()
 var currentScene;
 
-func savePlayerState(house):
-	playerSave.houses.append(house);
+func savePlayerState():
 	ResourceSaver.save(playerSave, "user://saveslot.tres");
 
 func loadPlayerState():
 	if(is_instance_valid(ResourceLoader.load("user://saveslot.tres"))):
-		playerSave = ResourceLoader.load("user://saveslot.tres");
+		playerSave = ResourceLoader.load("user://saveslot.tres");	
 	else:
 		ResourceSaver.save(playerSave, "user://saveslot.tres");
 
-func test():
-	print(playerSave.houses)
+func saveHouse():
+	var save = PackedScene.new()
+	var parent = currentScene.find_child("PlacedFurniture");
+	for child in parent.get_children():
+		child.set_owner(parent);
+	save.pack(parent)
+	
+	var houseSave = HouseSave.new();
+	houseSave.hallFurniture=save;
+
+	if(playerSave.houses.size()<1): 
+		playerSave.houses.append(houseSave);
+	else:
+		playerSave.houses[0]=houseSave;
+
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
+		print("yuh")
+		if(currentScene.name=="House1_indoor"):
+			saveHouse()
+		Global.savePlayerState()
