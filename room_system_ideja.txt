@@ -1,0 +1,10 @@
+PlayerSave ima houses array
+-mora bit sistem ucitavanja kuce, ovisno o tome koje je ime zadano
+
+HouseSave ima rooms array
+-mora bit sistem ucitavanja sobe, ovisno o tome koje je ime zadano
+
+KORISTI SE ISTI SCENE ZA SVAKU KUCU, UCITAJE SE DECOR I SOBE OVISNO O IMENU
+
+KORISTI SE VELICINSKI ISTI SCENE ZA SVAKU SOBU, OVISNO O TOME KOJA JE VELICINA ZADANA,
+UCITAJE SE DECOR OVISNO O IMENU

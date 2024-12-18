@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://utjrgn8pq33m"
-path="res://.godot/imported/door.png-0ea844f0c644a498a8a5a488e4343374.ctex"
+uid="uid://c4lxqk8liq58x"
+path="res://.godot/imported/smallroom_floor.png-fe670ef698197fc1180005132c2316bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environment/Hall/door.png"
-dest_files=["res://.godot/imported/door.png-0ea844f0c644a498a8a5a488e4343374.ctex"]
+source_file="res://TEMPORARY_ASSETS/Smallroom/smallroom_floor.png"
+dest_files=["res://.godot/imported/smallroom_floor.png-fe670ef698197fc1180005132c2316bd.ctex"]
 
 [params]
 
