@@ -41,6 +41,9 @@ func saveHouse():
 	else:
 		playerSave.houses[0]=houseSave;
 
+func _physics_process(delta: float) -> void:
+	#ODE MOZES STAVIT CURRENTSCENE = GET_TREE().CURRENT_SCENE ZA POJEDNOSTAVNIT KOD
+	pass
 
 
 func _notification(what: int) -> void:

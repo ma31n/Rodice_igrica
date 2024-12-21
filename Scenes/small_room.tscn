@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0rgkv0gyxp1x"]
+
+[ext_resource type="Texture2D" uid="uid://do56c7rseiu48" path="res://Sprites/Environment/Smallroom/smallroom_bg.png" id="1_ekxjj"]
+[ext_resource type="Script" path="res://Scripts/houserooms.gd" id="1_ohtc1"]
+[ext_resource type="Texture2D" uid="uid://b2dy2lb8ckchs" path="res://Sprites/Environment/Smallroom/smallroom_walls.png" id="2_wkhu5"]
+[ext_resource type="Texture2D" uid="uid://c4lxqk8liq58x" path="res://Sprites/Environment/Smallroom/smallroom_floor.png" id="3_47mla"]
+[ext_resource type="Texture2D" uid="uid://bg5d7sila33dp" path="res://Sprites/Environment/exitdoor.png" id="4_g1tfv"]
+[ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="5_trvd1"]
+[ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="6_1fb2b"]
+[ext_resource type="Script" path="res://Scripts/Back.gd" id="8_0w876"]
+
+[node name="SmallRoom" type="Node2D"]
+script = ExtResource("1_ohtc1")
+
+[node name="PlacedFurniture" type="Node" parent="."]
+
+[node name="RoomDecal" type="Node2D" parent="."]
+position = Vector2(505, 324)
+
+[node name="Background" type="Sprite2D" parent="RoomDecal"]
+modulate = Color(1, 0.764706, 1, 1)
+texture = ExtResource("1_ekxjj")
+
+[node name="Walls" type="Sprite2D" parent="RoomDecal"]
+texture = ExtResource("2_wkhu5")
+
+[node name="Floor" type="Sprite2D" parent="RoomDecal"]
+modulate = Color(1, 0.826646, 0.754555, 1)
+texture = ExtResource("3_47mla")
+
+[node name="ExitDoor" type="Sprite2D" parent="RoomDecal"]
+position = Vector2(438, 111)
+texture = ExtResource("4_g1tfv")
+
+[node name="Floor" parent="." instance=ExtResource("5_trvd1")]
+position = Vector2(-10, 0)
+rotation = 1.5708
+
+[node name="Floor2" parent="." instance=ExtResource("5_trvd1")]
+position = Vector2(1020, 60)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("6_1fb2b")]
+position = Vector2(178, 543)
+scale = Vector2(1.5, 1.5)
+
+[node name="Back" type="Button" parent="."]
+offset_left = 598.0
+offset_top = 7.0
+offset_right = 706.0
+offset_bottom = 61.0
+text = "POVRATAK U
+GRAD"
+script = ExtResource("8_0w876")
+
+[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
