@@ -3,4 +3,7 @@ extends Resource
 
 @export var hallFurniture : PackedScene
 @export var name : String
-@export var rooms : Array
+@export var rooms : Dictionary = {
+	"bathroom": null,
+	"smallroom2": null
+}

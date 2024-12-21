@@ -157,6 +157,7 @@ rotation = 1.5708
 
 [node name="Door" parent="." instance=ExtResource("13_7s2pf")]
 position = Vector2(899, 474)
+roomName = "bathroom"
 
 [connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
 [connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]

@@ -53,4 +53,8 @@ text = "POVRATAK U
 GRAD"
 script = ExtResource("8_0w876")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(577.945, 324.125)
+process_callback = 0
+
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
