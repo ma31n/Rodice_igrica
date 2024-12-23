@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0rgkv0gyxp1x"]
+[gd_scene load_steps=16 format=3 uid="uid://d0rgkv0gyxp1x"]
 
 [ext_resource type="Texture2D" uid="uid://do56c7rseiu48" path="res://TEMPORARY_ASSETS/Smallroom/smallroom_bg.png" id="1_ekxjj"]
 [ext_resource type="Script" path="res://Scripts/houserooms.gd" id="1_ohtc1"]
@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="5_trvd1"]
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="6_1fb2b"]
 [ext_resource type="Script" path="res://Scripts/Back.gd" id="8_0w876"]
+[ext_resource type="Script" path="res://Scripts/Controls.gd" id="8_4wyf1"]
+[ext_resource type="Texture2D" uid="uid://b7lv71dvf1lm5" path="res://Sprites/UI/edit_button.png" id="10_2o7tc"]
+[ext_resource type="Script" path="res://Scripts/EditButton.gd" id="11_kt56i"]
+[ext_resource type="Script" path="res://Scripts/delete_furniture.gd" id="12_m7jpp"]
+[ext_resource type="Texture2D" uid="uid://cailg7pyhwnyd" path="res://Sprites/UI/delete.png" id="13_3j1jt"]
+[ext_resource type="Script" path="res://Scripts/PlacementButtons.gd" id="14_nc256"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y674t"]
+size = Vector2(62, 96)
 
 [node name="SmallRoom" type="Node2D"]
 script = ExtResource("1_ohtc1")
@@ -44,17 +53,88 @@ rotation = 1.5708
 position = Vector2(178, 543)
 scale = Vector2(1.5, 1.5)
 
-[node name="Back" type="Button" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-118.667, -362)
+scale = Vector2(0.666667, 0.666667)
+offset = Vector2(577.945, 324.125)
+process_callback = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+script = ExtResource("8_4wyf1")
+
+[node name="Control" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1010.0
+offset_bottom = 648.0
+
+[node name="prevRoom" type="Button" parent="Player/CanvasLayer/Control"]
 offset_left = 598.0
 offset_top = 7.0
 offset_right = 706.0
 offset_bottom = 61.0
-text = "POVRATAK U
-GRAD"
+text = "Nazad u hodnik"
 script = ExtResource("8_0w876")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(577.945, 324.125)
-process_callback = 0
+[node name="Customization" type="Button" parent="Player/CanvasLayer/Control"]
+offset_left = 537.0
+offset_top = -68.0
+offset_right = 630.0
+offset_bottom = -37.0
+text = "Uređivanje"
+script = ExtResource("8_0w876")
 
-[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
+[node name="Button" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 648.0
+
+[node name="Button2" type="Button" parent="Player/CanvasLayer/Control"]
+custom_minimum_size = Vector2(121, 648)
+layout_mode = 0
+offset_left = 889.0
+offset_right = 1010.0
+offset_bottom = 648.0
+
+[node name="EditButton" type="TextureButton" parent="Player/CanvasLayer"]
+offset_left = 472.0
+offset_top = 4.0
+offset_right = 544.0
+offset_bottom = 76.0
+texture_normal = ExtResource("10_2o7tc")
+script = ExtResource("11_kt56i")
+
+[node name="DeleteFurniture" type="Area2D" parent="Player/CanvasLayer"]
+position = Vector2(1026, -511)
+script = ExtResource("12_m7jpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CanvasLayer/DeleteFurniture"]
+position = Vector2(82, 572)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("13_3j1jt")
+
+[node name="DeleteFurniture" type="CollisionShape2D" parent="Player/CanvasLayer/DeleteFurniture"]
+position = Vector2(82, 569)
+shape = SubResource("RectangleShape2D_y674t")
+
+[node name="PlacementButtons" type="Node2D" parent="Player/CanvasLayer"]
+script = ExtResource("14_nc256")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Player/CanvasLayer/PlacementButtons"]
+offset_top = 494.0
+offset_right = 2304.0
+offset_bottom = 802.0
+scale = Vector2(0.5, 0.5)
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/PlacementButtons/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Player/CanvasLayer/Control/prevRoom" to="Player/CanvasLayer/Control/prevRoom" method="_on_pressed"]
+[connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_up"]
+[connection signal="button_down" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_down"]
+[connection signal="button_up" from="Player/CanvasLayer/Control/Button2" to="Player" method="_on_button_2_button_up"]
+[connection signal="pressed" from="Player/CanvasLayer/EditButton" to="Player/CanvasLayer/EditButton" method="_on_pressed"]

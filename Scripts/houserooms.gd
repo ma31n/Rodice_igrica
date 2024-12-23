@@ -5,6 +5,7 @@ var roomSave;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.currentScene = get_tree().current_scene;
+	loadRoom()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,9 +14,9 @@ func _process(delta: float) -> void:
 
 func loadRoom():
 	if(Global.playerSave.houses.size()>0):
-		for room in Global.playerSave.houses[0].rooms.keys():
+		for room in Global.houseSave.rooms.keys():
 			if room == roomname:
-				roomSave = Global.playerSave.houses[0].rooms[room]
+				roomSave = Global.houseSave.rooms[room]
 		
 	if(roomSave!=null):
 		var temp = roomSave.instantiate()

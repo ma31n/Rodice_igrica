@@ -64,4 +64,8 @@ func _notification(what: int) -> void:
 		print("yuh")
 		if(currentScene.name=="House1_indoor"):
 			saveHouse()
+		elif("room" in currentScene.name):
+			saveRoom(currentScene.roomname)
+			get_tree().change_scene_to_file("res://Scenes/house_1_indoor.tscn");
+			_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		Global.savePlayerState()
