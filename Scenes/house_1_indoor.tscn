@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3xyehwu8c32w"]
+[gd_scene load_steps=18 format=3 uid="uid://b3xyehwu8c32w"]
 
 [ext_resource type="Script" path="res://Scripts/house_1_indoor.gd" id="1_ikmlt"]
 [ext_resource type="Texture2D" uid="uid://6j2t8c0ytm8b" path="res://Sprites/Environment/Hall/hall_bg.png" id="2_lgjx5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b7lv71dvf1lm5" path="res://Sprites/UI/edit_button.png" id="5_nduvi"]
 [ext_resource type="Texture2D" uid="uid://utjrgn8pq33m" path="res://Sprites/Environment/door.png" id="6_52hml"]
 [ext_resource type="Texture2D" uid="uid://cailg7pyhwnyd" path="res://Sprites/UI/delete.png" id="6_hekyw"]
+[ext_resource type="PackedScene" uid="uid://dyie5kdkjeds1" path="res://Scenes/door.tscn" id="6_in0ko"]
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="7_i4a4t"]
 [ext_resource type="Texture2D" uid="uid://bg5d7sila33dp" path="res://Sprites/Environment/exitdoor.png" id="7_qrrpu"]
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="8_yedgy"]
@@ -46,10 +47,10 @@ texture = ExtResource("3_4mnc8")
 self_modulate = Color(1, 0.597694, 0.411737, 1)
 texture = ExtResource("5_fkl2t")
 
-[node name="Door" type="Sprite2D" parent="Hall"]
-position = Vector2(-516, 13)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_52hml")
+[node name="Door" parent="Hall" instance=ExtResource("6_in0ko")]
+position = Vector2(-521, 13)
+roomName = "room1"
+roomSize = "small"
 
 [node name="Door2" type="Sprite2D" parent="Hall"]
 position = Vector2(-221, 13)

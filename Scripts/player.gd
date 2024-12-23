@@ -4,6 +4,7 @@ const speed = 300.0
 var move = 0;
 
 func _ready():
+	Global.player = self;
 	for p in get_node("SkeletonContainer/Parts").get_children():
 		for p2 in Global.currentapparel.keys():
 			if p.name==p2:

@@ -1,5 +1,7 @@
 extends Node
 
+var player;
+
 var currentapparel = {
 	"Hair": "hair1.png",
 	"Eyes": "eyes1.png",
@@ -14,6 +16,8 @@ var camera = 0;
 var furniture_edit = 2;
 
 var playerSave = PlayerSave.new()
+var houseSave = HouseSave.new();
+
 var currentScene;
 
 func savePlayerState():
@@ -32,14 +36,23 @@ func saveHouse():
 		child.set_owner(parent);
 		child.disconnect("input_event", Callable(child, "_on_input_event"))
 	save.pack(parent)
-	
-	var houseSave = HouseSave.new();
+
 	houseSave.hallFurniture=save;
 
 	if(playerSave.houses.size()<1): 
 		playerSave.houses.append(houseSave);
 	else:
 		playerSave.houses[0]=houseSave;
+
+func saveRoom(roomname):
+	var save = PackedScene.new()
+	var parent = currentScene.find_child("PlacedFurniture");
+	for child in parent.get_children():
+		child.set_owner(parent);
+		child.disconnect("input_event", Callable(child, "_on_input_event"))
+	save.pack(parent)
+
+	houseSave.rooms[roomname]=save;
 
 func _physics_process(delta: float) -> void:
 	#ODE MOZES STAVIT CURRENTSCENE = GET_TREE().CURRENT_SCENE ZA POJEDNOSTAVNIT KOD

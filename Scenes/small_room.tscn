@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0rgkv0gyxp1x"]
 
-[ext_resource type="Texture2D" uid="uid://do56c7rseiu48" path="res://Sprites/Environment/Smallroom/smallroom_bg.png" id="1_ekxjj"]
+[ext_resource type="Texture2D" uid="uid://do56c7rseiu48" path="res://TEMPORARY_ASSETS/Smallroom/smallroom_bg.png" id="1_ekxjj"]
 [ext_resource type="Script" path="res://Scripts/houserooms.gd" id="1_ohtc1"]
-[ext_resource type="Texture2D" uid="uid://b2dy2lb8ckchs" path="res://Sprites/Environment/Smallroom/smallroom_walls.png" id="2_wkhu5"]
-[ext_resource type="Texture2D" uid="uid://c4lxqk8liq58x" path="res://Sprites/Environment/Smallroom/smallroom_floor.png" id="3_47mla"]
+[ext_resource type="Texture2D" uid="uid://b2dy2lb8ckchs" path="res://TEMPORARY_ASSETS/Smallroom/smallroom_walls.png" id="2_wkhu5"]
+[ext_resource type="Texture2D" uid="uid://c4lxqk8liq58x" path="res://TEMPORARY_ASSETS/Smallroom/smallroom_floor.png" id="3_47mla"]
 [ext_resource type="Texture2D" uid="uid://bg5d7sila33dp" path="res://Sprites/Environment/exitdoor.png" id="4_g1tfv"]
 [ext_resource type="PackedScene" uid="uid://bdlkbuaeoe00g" path="res://Scenes/floor.tscn" id="5_trvd1"]
 [ext_resource type="PackedScene" uid="uid://c8o0npr0c6df" path="res://Scenes/player.tscn" id="6_1fb2b"]

@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and $"../Player".move==0):
+	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.player.move==0):
 		var room = preload("res://Scenes/small_room.tscn").instantiate();
 		room.roomname=roomName;
 		get_tree().root.add_child(room);
