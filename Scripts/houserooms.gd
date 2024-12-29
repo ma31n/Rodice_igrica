@@ -1,7 +1,7 @@
 extends Node2D
 
 var roomname;
-var roomSave;
+var roomSave=null;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.currentScene = get_tree().current_scene;
@@ -17,6 +17,7 @@ func loadRoom():
 		for room in Global.houseSave.rooms.keys():
 			if room == roomname:
 				roomSave = Global.houseSave.rooms[room]
+				print(roomSave)
 		
 	if(roomSave!=null):
 		var temp = roomSave.instantiate()

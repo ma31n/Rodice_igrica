@@ -69,6 +69,7 @@ offset_right = 1010.0
 offset_bottom = 648.0
 
 [node name="prevRoom" type="Button" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 598.0
 offset_top = 7.0
 offset_right = 706.0
@@ -77,6 +78,7 @@ text = "Nazad u hodnik"
 script = ExtResource("8_0w876")
 
 [node name="Customization" type="Button" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 537.0
 offset_top = -68.0
 offset_right = 630.0
