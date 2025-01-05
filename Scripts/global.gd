@@ -9,7 +9,7 @@ var currentapparel = {
 	"Upper": "upper1.png"
 }
 
-signal closing;
+var firstTimeLaunch = false;
 
 var viewport = 0;
 
@@ -23,11 +23,13 @@ var houseSave = HouseSave.new();
 var currentScene;
 
 func savePlayerState():
+	print(playerSave.houses.size())
 	ResourceSaver.save(playerSave, "user://saveslot.tres");
 
 func loadPlayerState():
 	if(is_instance_valid(ResourceLoader.load("user://saveslot.tres"))):
-		playerSave = ResourceLoader.load("user://saveslot.tres");	
+		playerSave = ResourceLoader.load("user://saveslot.tres");
+		print(type_string(typeof(playerSave)))
 	else:
 		savePlayerState()
 
@@ -56,6 +58,7 @@ func saveRoom(roomname):
 	save.pack(parent)
 
 	houseSave.rooms[roomname]=save;
+	Global.playerSave.houses[0].rooms[roomname]=houseSave.rooms[roomname]
 
 func _physics_process(delta: float) -> void:
 	#ODE MOZES STAVIT CURRENTSCENE = GET_TREE().CURRENT_SCENE ZA POJEDNOSTAVNIT KOD
@@ -70,8 +73,6 @@ func _notification(what: int) -> void:
 			saveHouse()
 		elif("room" in currentScene.name):
 			saveRoom(currentScene.roomname)
-			get_tree().change_scene_to_file("res://Scenes/house_1_indoor.tscn");
-			saveHouse()
 		Global.savePlayerState() 
 		while(delay!=0):
 			delay=delay-1

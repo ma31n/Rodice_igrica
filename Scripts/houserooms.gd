@@ -14,12 +14,17 @@ func _process(delta: float) -> void:
 
 func loadRoom():
 	if(Global.playerSave.houses.size()>0):
+		Global.houseSave.rooms=Global.playerSave.houses[0].rooms
+		print("Pronađena kuća, učitajem u kojoj smo sobi!")
+		print(Global.houseSave.rooms.keys())
 		for room in Global.houseSave.rooms.keys():
+			print(room)
 			if room == roomname:
 				roomSave = Global.houseSave.rooms[room]
 				print(roomSave)
 		
 	if(roomSave!=null):
+		print("in2")
 		var temp = roomSave.instantiate()
 		for child in temp.get_children():
 			temp.remove_child(child)
