@@ -13,6 +13,10 @@ func _process(delta: float) -> void:
 	pass
 
 func loadRoom():
+	print("UCITAVANJE SOBE")
+	var tempo = Global.playerSave.houses[0].hallFurniture.instantiate()
+	for child in tempo.get_children():
+		print(child)
 	if(Global.playerSave.houses.size()>0):
 		Global.houseSave.rooms=Global.playerSave.houses[0].rooms
 		print("Pronađena kuća, učitajem u kojoj smo sobi!")

@@ -115,6 +115,14 @@ offset_right = 1152.0
 offset_bottom = 628.0
 mouse_filter = 1
 
+[node name="Button3" type="Button" parent="Player/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 25.0
+offset_right = 998.0
+offset_bottom = 56.0
+text = "TEST"
+
 [node name="Customization" type="Button" parent="Player/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 512.0
@@ -154,6 +162,7 @@ rotation = 1.5708
 position = Vector2(2668, 450)
 rotation = 1.5708
 
+[connection signal="pressed" from="Player/CanvasLayer/Control/Button3" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Player/CanvasLayer/Control/Customization" to="Player/CanvasLayer/Control/Customization" method="_on_pressed"]
 [connection signal="button_down" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_down"]
 [connection signal="button_up" from="Player/CanvasLayer/Control/Button" to="Player" method="_on_button_button_up"]

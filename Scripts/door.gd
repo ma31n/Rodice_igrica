@@ -13,7 +13,11 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.player.move==0):
+		print("IDEMO U SOBU")
 		Global.saveHouse()
+		var temp = Global.playerSave.houses[0].hallFurniture.instantiate()
+		for child in temp.get_children():
+			print(child)
 		var room = preload("res://Scenes/small_room.tscn").instantiate();
 		room.roomname=roomName;
 		get_tree().root.add_child(room);
