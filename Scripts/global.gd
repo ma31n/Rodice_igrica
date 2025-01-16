@@ -48,20 +48,24 @@ func saveHouse():
 	else:
 		playerSave.houses[0]=houseSave;
 		print("existing save house")
-		
+	
+	return true;
+
 func saveRoom(roomname):
+	print("Spremam sobu: "+roomname)
 	var save = PackedScene.new()
 	var parent = currentScene.find_child("PlacedFurniture");
 	for child in parent.get_children():
 		child.set_owner(parent);
 		child.disconnect("input_event", Callable(child, "_on_input_event"))
 	save.pack(parent)
-
+	
 	houseSave.rooms[roomname]=save;
-	Global.playerSave.houses[0].rooms[roomname]=houseSave.rooms[roomname]
+	playerSave.houses[0].rooms[roomname]=save
 
 func _physics_process(delta: float) -> void:
 	#ODE MOZES STAVIT CURRENTSCENE = GET_TREE().CURRENT_SCENE ZA POJEDNOSTAVNIT KOD
+	print(get_tree().root.get_children())
 	pass
 
 
@@ -69,11 +73,13 @@ func _notification(what: int) -> void:
 
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
 		print("CLOSING GAME")
+		print(currentScene.name)
 		if(currentScene.name=="House1_indoor"):
 			saveHouse()
 		elif("room" in currentScene.name):
 			saveRoom(currentScene.roomname)
 		Global.savePlayerState() 
-		while(delay!=0):
-			delay=delay-1
+		#while(delay!=0):
+		#	delay=delay-1
+		await get_tree().process_frame
 		get_tree().quit()

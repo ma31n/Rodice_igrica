@@ -18,7 +18,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y674t"]
 size = Vector2(62, 96)
 
-[node name="SmallRoom" type="Node2D"]
+[node name="Small_room" type="Node2D"]
 script = ExtResource("1_ohtc1")
 
 [node name="PlacedFurniture" type="Node" parent="."]

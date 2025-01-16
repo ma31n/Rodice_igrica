@@ -21,6 +21,7 @@ func loadHouse():
 		print("Učitajem hallFurniture")
 		var temp = Global.houseSave.hallFurniture.instantiate()
 		for child in temp.get_children():
+			print(child)
 			temp.remove_child(child)
 			child.owner=null
 			$PlacedFurniture.add_child(child);
