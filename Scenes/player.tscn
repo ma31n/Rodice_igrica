@@ -241,7 +241,7 @@ _data = {
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_8rl25")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8.5)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_q3rc8")
@@ -283,6 +283,7 @@ texture = ExtResource("3_achy3")
 
 [node name="Head" type="Sprite2D" parent="SkeletonContainer/Parts"]
 position = Vector2(0, -47.5)
+scale = Vector2(1, 1)
 texture = ExtResource("6_1phlc")
 
 [node name="Mouth" type="Sprite2D" parent="SkeletonContainer/Parts"]

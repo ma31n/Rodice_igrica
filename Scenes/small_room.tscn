@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0rgkv0gyxp1x"]
+[gd_scene load_steps=17 format=3 uid="uid://d0rgkv0gyxp1x"]
 
 [ext_resource type="Texture2D" uid="uid://do56c7rseiu48" path="res://TEMPORARY_ASSETS/Smallroom/smallroom_bg.png" id="1_ekxjj"]
 [ext_resource type="Script" path="res://Scripts/houserooms.gd" id="1_ohtc1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/delete_furniture.gd" id="12_m7jpp"]
 [ext_resource type="Texture2D" uid="uid://cailg7pyhwnyd" path="res://Sprites/UI/delete.png" id="13_3j1jt"]
 [ext_resource type="Script" path="res://Scripts/PlacementButtons.gd" id="14_nc256"]
+[ext_resource type="StyleBox" uid="uid://1s0mybrgtdxk" path="res://Styles/boxstyle.tres" id="15_258jn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y674t"]
 size = Vector2(62, 96)
@@ -128,6 +129,7 @@ offset_top = 494.0
 offset_right = 2304.0
 offset_bottom = 802.0
 scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("15_258jn")
 vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Player/CanvasLayer/PlacementButtons/ScrollContainer"]
