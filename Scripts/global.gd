@@ -65,7 +65,7 @@ func saveRoom(roomname):
 
 func _physics_process(delta: float) -> void:
 	#ODE MOZES STAVIT CURRENTSCENE = GET_TREE().CURRENT_SCENE ZA POJEDNOSTAVNIT KOD
-	print(get_tree().root.get_children())
+	#print(get_tree().root.get_children())
 	pass
 
 

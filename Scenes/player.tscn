@@ -287,11 +287,11 @@ scale = Vector2(1, 1)
 texture = ExtResource("6_1phlc")
 
 [node name="Mouth" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(0, -47.5)
+position = Vector2(-1.25, -40)
 texture = ExtResource("6_hfgsn")
 
 [node name="Eyes" type="Sprite2D" parent="SkeletonContainer/Parts"]
-position = Vector2(2.84217e-14, -47.5)
+position = Vector2(3.38813e-21, -38.75)
 texture = ExtResource("6_vuc50")
 
 [node name="Hair" type="Sprite2D" parent="SkeletonContainer/Parts"]
